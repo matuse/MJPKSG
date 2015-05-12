@@ -8,6 +8,4 @@ import time
 
 t = time.localtime()
 
-print 'Time is: ',t.tm_hour,':',t.tm_min,':',t.tm_sec
-
-
+print 'Time is: ', t.tm_hour, ':', t.tm_min, ':', t.tm_sec
