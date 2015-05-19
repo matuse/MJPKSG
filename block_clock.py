@@ -91,18 +91,31 @@ min_sec_dic = {0: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255],
 
 t = time.localtime()
 
-print ""
-print 'Local time is: ', t.tm_hour, ':', t.tm_min, ':', t.tm_sec
-print ""
+print("")
+print('Local time is: ', t.tm_hour, ':', t.tm_min, ':', t.tm_sec)
+print("")
 
 if t.tm_hour > 12:
     t_hour = t.tm_hour - 12
 else:
     t_hour = t.tm_hour
 
-print 'Hour set: ', hour_dic[t_hour]
-print 'Minute set:', min_sec_dic[t.tm_min]
-print 'Second set:', min_sec_dic[t.tm_sec]
-print ""
+print('Hour set: ', hour_dic[t_hour])
+print('Minute set:', min_sec_dic[t.tm_min])
+print('Second set:', min_sec_dic[t.tm_sec])
+print("")
 
-print hour_dic[t_hour] + min_sec_dic[t.tm_min] + min_sec_dic[t.tm_sec]
+'print hour_dic[t_hour] + min_sec_dic[t.tm_min] + min_sec_dic[t.tm_sec]'
+
+i = 0
+rgb = [[0, 0, 0]]
+
+for r in hour_dic[t_hour]:
+    g = min_sec_dic[t.tm_min][i]
+    b = min_sec_dic[t.tm_sec][i]
+    rgb.append([r, g, b])
+    i = i + 1
+
+del rgb[0]
+
+print(rgb)
