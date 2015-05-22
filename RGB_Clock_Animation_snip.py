@@ -1,6 +1,7 @@
 import time
 from color import *
 import timecolors
+import block_clock
 
 
 class BaseAnimation(object):
@@ -69,5 +70,33 @@ class RGBClock(BaseAnimation):
 
         r, g, b = timecolors._minSecColors[t.tm_sec]
         self._led.fillRGB(r, g, b, self._sStart, self._sEnd)
+
+        self._step = 0
+
+class BlockClock(BaseAnimation):
+
+    """ A clock with one or more LED pixels representing the 1 - 12 number
+    locations on a traditional round clock.  Each "pixel" or "block" will have
+    its RGB color value set by Red values representing the hour, Green values the
+    minute, and Blue values the seconds."""
+
+    def __init__(self, led, pxpblk = 1):
+        super(BlockClock, self).__init__(led, 1)
+
+    def step(self, amt = 1):
+        if t.tm_hour > 12:
+            t_hour = t.tm_hour - 12
+        if t.tm_hour == 0:
+            t_hour = 12
+        else:
+            t_hour = t.tm_hour
+
+        i = 0
+
+        for r in block_clock.hour_dic[t_hour]
+            g = block_clock.min_sec_dic[t.tm_min][i]
+            b = block_clock.min_sec_dic[t.tm_sec][i]
+            self._led.setRGB(i, r, g, b)
+            i = i + 1
 
         self._step = 0
