@@ -1,6 +1,6 @@
 import time
 from color import *
-import timecolors
+# import timecolors
 import block_clock
 
 
@@ -81,7 +81,7 @@ class BlockClock(BaseAnimation):
     minute, and Blue values the seconds."""
 
     def __init__(self, led, pxpblk = 1):
-        super(BlockClock, self).__init__(led, 1)
+        super(BlockClock, self).__init__(led, 0, 0)
 
     def step(self, amt = 1):
         if t.tm_hour > 12:
@@ -93,7 +93,7 @@ class BlockClock(BaseAnimation):
 
         i = 0
 
-        for r in block_clock.hour_dic[t_hour]
+        for r in block_clock.hour_dic[t_hour]:
             g = block_clock.min_sec_dic[t.tm_min][i]
             b = block_clock.min_sec_dic[t.tm_sec][i]
             self._led.setRGB(i, r, g, b)
