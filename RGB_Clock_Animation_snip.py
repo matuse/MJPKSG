@@ -85,7 +85,7 @@ class BlockClock(BaseAnimation):
 
     def step(self, amt = 1):
 
-    t = time.localtime()
+        t = time.localtime()
 
         if t.tm_hour > 12:
             t_hour = t.tm_hour - 12
