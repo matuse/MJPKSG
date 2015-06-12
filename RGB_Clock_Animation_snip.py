@@ -85,12 +85,12 @@ class BlockClock(BaseAnimation):
 
     def step(self, amt = 1):
 
-        t = time.localtime()
+    t = time.localtime()
 
         if t.tm_hour > 12:
             t_hour = t.tm_hour - 12
-#        if t.tm_hour == 0:
-#            t_hour = 12
+        elif t.tm_hour == 0:
+            t_hour = 12
         else:
             t_hour = t.tm_hour
 
@@ -99,7 +99,7 @@ class BlockClock(BaseAnimation):
         for r in block_clock.hour_dic[t_hour]:
             g = block_clock.min_sec_dic[t.tm_min][i]
             b = block_clock.min_sec_dic[t.tm_sec][i]
-            self._led.setRGB(i, r, g, b)
+            self._led.fillRGB(r, g, b, i * amt, i * amt + amt - 1)
             i = i + 1
 
         self._step = 0

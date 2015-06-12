@@ -1,19 +1,8 @@
 '''
 block_clock.py
 
-Matt James 5/10/15
-
-12 colored blocks, one for each hour 1-12 with minutes and seconds overlaid
-
-Hours = red
-Minutes = green
-Seconds = blue
-
-Colors add in RGB form
-Levels for each color set from 0 - 255
+Color codes for use with RGB Block Clock animation
 '''
-
-import time
 
 hour_dic = {1: [255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             2: [0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -88,36 +77,3 @@ min_sec_dic = {0: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255],
                57: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 153, 102],
                58: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 102, 153],
                59: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 204]}
-
-"""
-t = time.localtime()
-
-print("")
-print('Local time is: ', t.tm_hour, ':', t.tm_min, ':', t.tm_sec)
-print("")
-
-if t.tm_hour > 12:
-    t_hour = t.tm_hour - 12
-else:
-    t_hour = t.tm_hour
-
-print('Hour set: ', hour_dic[t_hour])
-print('Minute set:', min_sec_dic[t.tm_min])
-print('Second set:', min_sec_dic[t.tm_sec])
-print("")
-
-'print hour_dic[t_hour] + min_sec_dic[t.tm_min] + min_sec_dic[t.tm_sec]'
-
-i = 0
-rgb = [[0, 0, 0]]
-
-for r in hour_dic[t_hour]:
-    g = min_sec_dic[t.tm_min][i]
-    b = min_sec_dic[t.tm_sec][i]
-    rgb.append([r, g, b])
-    i = i + 1
-
-del rgb[0]
-
-print(rgb)
-"""
