@@ -10,6 +10,6 @@ led.all_off()
 anim = BlockClock(led, 12)
 
 while True:
-	anim.step()
-	led.update()
-	sleep(1)
+    anim.step(amt=2)
+    led.update()
+    sleep(1)
